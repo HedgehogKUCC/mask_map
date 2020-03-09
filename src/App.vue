@@ -20,9 +20,9 @@
             <h2 class="float-left mb-0 mr-0 mr-sm-5">星期{{ day }}</h2>
             <div class="float-right">
               <p class="text-right mb-0">{{ date }}</p>
-              <p class="mb-0" v-if="day === '一' || '三' || '五'">身分證末碼
+              <p class="mb-0" v-if="day === '一' || day === '三' || day === '五'">身分證末碼
                 <strong class="numStyle">1,3,5,7,9</strong> 可購買</p>
-              <p class="mb-0" v-else-if="day === '二' || '四' || '六'">身分證末碼
+              <p class="mb-0" v-else-if="day === '二' || day === '四' || day === '六'">身分證末碼
                 <strong class="numStyle">2,4,6,8,0</strong> 可購買</p>
               <p class="mb-0" v-else><strong class="numStyle">今日皆可購買</strong></p>
             </div>
