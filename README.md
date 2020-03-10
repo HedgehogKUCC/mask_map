@@ -284,6 +284,7 @@ for( let i = 0; i < data.length; i++) {
 <br>
 
 <h2 id="setup">Project setup</h2>
+
 ```
 npm install
 ```
