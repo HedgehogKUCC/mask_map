@@ -17,7 +17,7 @@
         :class="{ 'slideClose' : toggleBox === true }">
         <div class="slideBox__title">
           <div class="clearfix mb-1">
-            <h2 class="float-left mb-0 mr-0 mr-sm-5">星期{{ day }}</h2>
+            <h2 class="float-left mb-0">星期{{ day }}</h2>
             <div class="float-right">
               <p class="text-right mb-0">{{ date }}</p>
               <p class="mb-0" v-if="day === '一' || day === '三' || day === '五'">身分證末碼
@@ -116,7 +116,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">3/5 最新公告</h5>
+            <h2 class="modal-title" id="exampleModalLabel">3/5 最新公告</h2>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -165,14 +165,12 @@ const osm = {
                 <a href="https://www.google.com.tw/maps/place/${item.address}"
                 target="_blank" title="Google Map">${item.address}</a><br>
                 <p class="my-1">${item.phone}</p>
-                <div class="d-flex justify-content-between">
-                  <span class="btn btn-primary mask-button-popup mr-2">
-                    成人口罩 ${item.mask_adult}
-                  </span>
-                  <span class="btn btn-secondary mask-button-popup">
-                    兒童口罩 ${item.mask_child}
-                  </span>
-                </div>`);
+                <span class="btn btn-primary mask-button-popup mr-2">
+                  成人口罩 ${item.mask_adult}
+                </span>
+                <span class="btn btn-secondary mask-button-popup">
+                  兒童口罩 ${item.mask_child}
+                </span>`);
   },
   removeMapMarker() {
     osmMap.eachLayer((layer) => {
@@ -191,14 +189,12 @@ const osm = {
                 <a href="https://www.google.com.tw/maps/place/${item.address}"
                 target="_blank" title="Google Map">${item.address}</a><br>
                 <p class="my-1">${item.phone}</p>
-                <div class="d-flex justify-content-between">
-                  <span class="btn btn-primary mask-button-popup mr-2">
-                    成人口罩 ${item.mask_adult}
-                  </span>
-                  <span class="btn btn-secondary mask-button-popup">
-                    兒童口罩 ${item.mask_child}
-                  </span>
-                </div>`).openPopup();
+                <span class="btn btn-primary mask-button-popup mr-2">
+                  成人口罩 ${item.mask_adult}
+                </span>
+                <span class="btn btn-secondary mask-button-popup">
+                  兒童口罩 ${item.mask_child}
+                </span>`).openPopup();
   },
 };
 
@@ -329,6 +325,10 @@ export default {
 
 <style lang="scss">
 @import './assets/scss/all';
+
+html {
+  font-size: 16px;
+}
 
 a:hover {
   text-decoration: none;
