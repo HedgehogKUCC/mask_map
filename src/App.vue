@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container-fluid px-0">
       <div id="map"></div>
-      <span class="information" @click="openModal()">
+      <span class="information" @click="openModal('real')">
         <i class="fas fa-exclamation-circle fa-3x text-primary"></i>
       </span>
       <div class="slideBox--toggle"
@@ -27,8 +27,10 @@
               <p class="mb-0" v-else><strong class="numStyle">今日皆可購買</strong></p>
             </div>
           </div>
-          <small class="mb-1">灰色圖標代表沒有成人口罩</small><br>
-          <small class="mb-1">點選地址可以跳置 Google Map</small>
+          <p class="mb-1">灰色圖標代表沒有成人口罩</p>
+          <p>3/12起 網路購買試營運
+            <i class="fas fa-exclamation-circle fa-1x" @click="openModal('online')"></i>
+          </p>
           <label for="county" class="sr-only">縣市</label>
           <select
             name="county"
@@ -111,18 +113,38 @@
         </div>
       </div>
     </div>
-    <!-- Modal -->
+    <!-- RealModal -->
     <div class="modal fade" id="maskModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    aria-labelledby="maskModal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalLabel">3/5 最新公告</h2>
+            <h2 class="modal-title" id="maskModal">3/5 最新公告</h2>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body modal-body-mask">
+          </div>
+          <div class="modal-footer">
+            <p><span class="mr-3">防疫專線 1922</span>口罩問題 1919</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OnlineModal -->
+    <div class="modal fade" id="maskOnlineModal" tabindex="-1" role="dialog"
+    aria-labelledby="maskOnlineModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="maskOnlineModal">3/10 最新公告</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body modal-body-maskOnline">
           </div>
           <div class="modal-footer">
             <p><span class="mr-3">防疫專線 1922</span>口罩問題 1919</p>
@@ -300,8 +322,9 @@ export default {
         });
       });
     },
-    openModal() {
-      $('#maskModal').modal('show');
+    openModal(item) {
+      if (item === 'real') { $('#maskModal').modal('show'); }
+      if (item === 'online') { $('#maskOnlineModal').modal('show'); }
     },
   },
   computed: {
@@ -346,6 +369,10 @@ select {
   border-radius: 0 !important;
 }
 
+.fa-exclamation-circle {
+  cursor: pointer;
+}
+
 #map {
   height: 100vh;
 }
@@ -358,15 +385,28 @@ select {
 }
 
 .modal-body {
-  width: 100%;
-  height: 500px;
-  background: url('./assets/images/mask.jpg') center;
-  background-repeat: no-repeat;
-
-  @media (max-width: 575px) {
-    height: 320px;
-    background: url('./assets/images/mask-sm.jpg') center;
+  &-mask {
+    height: 500px;
+    background: url('./assets/images/mask.jpg') center;
     background-repeat: no-repeat;
+
+    @media (max-width: 575px) {
+      height: 302px;
+      background: url('./assets/images/mask-sm.jpg') center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &-maskOnline {
+    height: 676px;
+    background: url('./assets/images/mask-online-shopping.jpg') center;
+    background-repeat: no-repeat;
+
+    @media (max-width: 575px) {
+      height: 408px;
+      background: url('./assets/images/mask-online-shopping-sm.jpg') center;
+      background-repeat: no-repeat;
+    }
   }
 }
 
@@ -384,7 +424,7 @@ select {
     height: 50px;
     background-color: $primary;
     position: fixed;
-    top: 162px;
+    top: 193px;
     left: 340px;
     z-index: 1000;
     transition: left .5s ease-out;
