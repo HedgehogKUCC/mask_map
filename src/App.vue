@@ -428,6 +428,7 @@ select {
     left: 340px;
     z-index: 1000;
     transition: left .5s ease-out;
+    cursor: pointer;
 
     i {
       color: #fff;
