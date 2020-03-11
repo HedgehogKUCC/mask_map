@@ -27,7 +27,8 @@
               <p class="mb-0" v-else><strong class="numStyle">今日皆可購買</strong></p>
             </div>
           </div>
-          <p class="mb-1">防疫專線 1922 | 口罩資訊 1911</p>
+          <small class="mb-1">灰色圖標代表沒有成人口罩</small><br>
+          <small class="mb-1">點選地址可以跳置 Google Map</small>
           <label for="county" class="sr-only">縣市</label>
           <select
             name="county"
@@ -123,6 +124,9 @@
           </div>
           <div class="modal-body">
           </div>
+          <div class="modal-footer">
+            <p><span class="mr-3">防疫專線 1922</span>口罩問題 1919</p>
+          </div>
         </div>
       </div>
     </div>
@@ -157,7 +161,7 @@ const icons = {
 
 const osm = {
   addMapMarker(x, y, item) {
-    const icon = item.mask_adult || item.mask_child ? icons.green : icons.grey;
+    const icon = item.mask_adult ? icons.green : icons.grey;
     L.marker([y, x], {
       icon,
     }).addTo(osmMap).bindPopup(`
@@ -348,7 +352,7 @@ select {
 
 .information {
   position: fixed;
-  bottom: 0;
+  bottom: 18px;
   right: 0;
   z-index: 1000;
 }
