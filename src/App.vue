@@ -206,7 +206,7 @@ const osm = {
     });
   },
   penTo(x, y, item) {
-    const icon = item.mask_adult || item.mask_child ? icons.green : icons.grey;
+    const icon = item.mask_adult ? icons.green : icons.grey;
     osmMap.panTo(new L.LatLng(y, x));
     L.marker([y, x], {
       icon,
