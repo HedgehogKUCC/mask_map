@@ -346,6 +346,12 @@ export default {
   mounted() {
     this.getMaskData();
     this.getDate();
+    this.$nextTick(() => {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const { coords } = pos;
+        console.log(coords.latitude, coords.longitude);
+      });
+    });
   },
 };
 </script>

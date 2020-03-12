@@ -88,7 +88,7 @@ npm run serve
 
 <h2 id="declaration">聲明</h2>
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/HedgehogKUCC/vuecli/blob/master/LICENSE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/HedgehogKUCC/mask_map/blob/master/LICENSE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
 
 
 
